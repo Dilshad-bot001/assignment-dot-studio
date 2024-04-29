@@ -1,0 +1,213 @@
+@font-face {
+    font-family: gotham600;
+    src: url(./assets/fonts/GothamBold.ttf);
+}
+
+@font-face {
+    font-family: gotham400;
+    src: url(./assets/fonts/GothamLight.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gotham600, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    width: 1440px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+span {
+    color: rgb(0, 0, 193)
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+.card {
+    color: white;
+    width: 511px;
+    height: 330px;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: center;
+}
+
+.card1 {
+    background: url("./assets/images/1.jpeg");
+    background-size: cover;
+}
+
+.card2 {
+    background: linear-gradient(180.68deg, rgba(0, 0, 0, 0) -9.3%, rgba(0, 0, 0, 0.59) 48.1%, #000000 99.41%);
+    background: url("./assets/images/2.jpeg");
+    background-size: cover;
+}
+
+.card3 {
+    background: url("./assets/images/3.jpeg");
+    background-size: cover;
+}
+
+.card4 {
+    background: url("./assets/images/4.jpeg");
+    background-size: cover;
+}
+
+.black-gradient {
+    width: 511px;
+    height: 145px;
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180.68deg, rgba(0, 0, 0, 0) -9.3%, rgba(0, 0, 0, 0.59) 48.1%, #000000 99.41%);
+}
+
+.bottom-text {
+    font-size: 28px;
+    text-align: center;
+}
+
+span {
+    color: rgb(247, 186, 73);
+}
+
+.title {
+    display: none;
+    font-size: 32px;
+    margin-bottom: 8px;
+    line-height: 35px;
+    opacity: 0;
+}
+
+.desc {
+    display: none;
+    font-size: 20px;
+    line-height: 26px;
+    font-family: gotham400, sans-serif;
+    opacity: 0;
+}
+
+.card:hover .black-gradient {
+    display: none;
+}
+
+.card::before {
+    position: absolute;
+    content: "";
+    background: #114A8DCC;
+    width: 511px;
+    height: 294px;
+    z-index: -1;
+}
+
+.card:hover {
+    justify-content: center;
+    align-items: center;
+    padding: 0px 43px;
+}
+
+.card:before {
+    top: 100%;
+    right: 100%;
+    transition: 0.6s all;
+}
+
+.card:hover::before {
+    top: 18px;
+    right: 0px;
+}
+
+.card:hover .title {
+    display: block;
+    animation: reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) 0.5s forwards;
+}
+
+.card:hover .desc {
+    display: block;
+    animation: reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) 0.5s forwards;
+}
+
+@keyframes reveal {
+    0% {
+        transform: translate(0, 100%);
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1024px) {
+    section {
+        width: 1024px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+
+    .cards{
+        gap: 28px;
+    }
+
+    .card {
+        width: 380px;
+        height: 280px;
+    }
+
+    .black-gradient {
+        width: 380px;
+        height: 100px;
+    }
+
+    .bottom-text {
+        font-size: 22px;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        line-height: 28px;
+    }
+    
+    .desc {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
